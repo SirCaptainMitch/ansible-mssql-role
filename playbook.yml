@@ -1,0 +1,24 @@
+---
+- hosts: all 
+  become: yes 
+  become_user: root 
+  roles:
+    - ntp
+    - mssql
+  tasks: 
+    - name: Set Hostname 
+      hostname: 
+        name: sql01
+
+    - name: set hosts for xenial 
+      shell: echo "127.0.1.1 sql01" >> /etc/hosts
+
+    # - name: convert script file to unix line endings 
+    #   shell: tr -d '\r' < /vagrant/scripts/mssql.sh > /vagrant/scripts/mssql.u.sh
+
+    # - name: run unattended install
+    #   command: sudo /vagrant/scripts/mssql.u.sh
+
+    # - name: Add MS repo for install 
+
+    # - name: Install MSSQL (2016) / Update 

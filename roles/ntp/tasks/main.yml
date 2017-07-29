@@ -1,0 +1,20 @@
+---
+- name: Install and Configure NTP 
+  package: 
+    name: ntp 
+    state: present 
+  register: ntpinstall 
+
+- name: Write ntp.conf
+  copy: 
+    src: /vagrant/template/ntp.conf 
+    dest: /etc/ntp.conf
+  notify: restart ntp 
+  when: ntpinstall|success 
+  register: ntpconf
+
+- name: Start NTP 
+  service: 
+    name: ntp 
+    state: started 
+  when: ntpconf|success 

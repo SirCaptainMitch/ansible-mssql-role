@@ -1,0 +1,35 @@
+---
+- name: add key for MS 
+  apt_key: 
+    url: "https://packages.microsoft.com/keys/microsoft.asc"
+    state: present
+
+- name: add repository 
+  apt_repository: 
+    repo: deb [arch=amd64] https://packages.microsoft.com/ubuntu/16.04/mssql-server xenial main
+
+- name: Update Cache and Install Mssql-server 
+  apt:
+    package: mssql-server
+    update_cache: yes
+
+- name: Configure MSSQL-Conf setup 
+  command: /opt/mssql/bin/mssql-conf setup
+  environment: 
+    ACCEPT_EULA: "Y"
+    MSSQL_PID: Developer
+    MSSQL_SA_PASSWORD: "!99Redbal00ns"
+    MSSQL_TCP_PORT: 1433
+
+- name: Add tools key 
+  apt_key: 
+    url: "https://packages.microsoft.com/keys/microsoft.asc"
+    state: present 
+
+- name: add tools repo 
+  apt_repository: 
+    repo: deb [arch=amd64] https://packages.microsoft.com/ubuntu/16.04/prod xenial main
+
+
+
+
