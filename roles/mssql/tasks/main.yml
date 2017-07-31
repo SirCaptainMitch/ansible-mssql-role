@@ -29,6 +29,23 @@
 - name: add tools repo 
   apt_repository: 
     repo: deb [arch=amd64] https://packages.microsoft.com/ubuntu/16.04/prod xenial main
+    update_cache: yes
+
+- name: install mssql-tools
+  apt: 
+    package: "{{item}}"  
+    state: installed
+    update_cache: yes
+    force: yes 
+    install_recommends: yes    
+  with_items: 
+    - mssql-tools 
+    - unixodbc-dev
+  environment: 
+    ACCEPT_EULA: "Y"
+    DEBIAN_FRONTEND: "noninteractive"
+
+  
 
 
 
