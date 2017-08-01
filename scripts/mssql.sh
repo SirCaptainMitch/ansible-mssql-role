@@ -25,7 +25,7 @@ sudo apt-get install -y mssql-server
 
 # 3. configures database
 # https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-environment-variables
-sudo ACCEPT_EULA='Y' MSSQL_PID='Developer' MSSQL_SA_PASSWORD='!99Redbal00ns' MSSQL_TCP_PORT=1433 /opt/mssql/bin/mssql-conf setup
+sudo ACCEPT_EULA='Y' MSSQL_PID='Developer' MSSQL_SA_PASSWORD='HardPass2017!' MSSQL_TCP_PORT=1433 /opt/mssql/bin/mssql-conf setup
 # 4. starts database instance
 sudo systemctl start mssql-server
 
@@ -49,7 +49,7 @@ echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 source ~/.bashrc
 
 # connect test 
-sqlcmd -S localhost -U SA -P '!99Redbal00ns''
+sqlcmd -S localhost -U SA -P 'HardPass2017!'
 
 
 sudo ACCEPT_EULA=y DEBIAN_FRONTEND=noninteractive apt-get install -y -f -q --no-install-recommends mssql-tools unixodbc-dev
