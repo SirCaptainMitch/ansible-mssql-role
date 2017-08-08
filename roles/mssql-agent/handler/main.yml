@@ -1,1 +1,5 @@
 ---
+- name: Restart SQL Server 
+  systemd: 
+    name: mssql-server
+    state: restarted

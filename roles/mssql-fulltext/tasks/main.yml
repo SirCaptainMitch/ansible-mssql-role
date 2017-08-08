@@ -1,1 +1,7 @@
 ---
+- name: Install FullText for mssql 
+  apt: 
+    name: mssql-server-fts 
+    update_cache: yes 
+    state: present
+  notify: Restart SQL Server 

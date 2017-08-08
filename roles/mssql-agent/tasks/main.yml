@@ -1,1 +1,7 @@
 ---
+- name: Install agent package 
+  apt: 
+    update_cache: yes
+    name: mssql-server-agent
+    state: latest 
+  notify: Restart SQL Server 
