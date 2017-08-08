@@ -20,9 +20,3 @@
     MSSQL_PID: Developer
     MSSQL_SA_PASSWORD: "HardPass2017!"
     MSSQL_TCP_PORT: 1433
-
-  
-
-
-
-
