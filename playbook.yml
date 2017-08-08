@@ -5,6 +5,7 @@
   roles:
     - ntp
     - mssql
+    - mssql-tools
   tasks: 
     - name: Set Hostname 
       hostname: 
