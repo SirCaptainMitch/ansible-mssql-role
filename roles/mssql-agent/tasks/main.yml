@@ -4,4 +4,4 @@
     update_cache: yes
     name: mssql-server-agent
     state: latest 
-  notify: Restart SQL Server 
+  notify: Restart SQL

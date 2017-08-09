@@ -7,6 +7,8 @@
     - mssql
     - mssql-tools
     - mssql-agent
+    - mssql-fulltext
+    - mssql-ssis
   tasks: 
     - name: Set Hostname 
       hostname: 
